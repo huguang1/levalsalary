@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+	<meta charset="utf-8">
+	<meta name="renderer" content="webkit">
+	<title>等级俸禄查询</title>
+	<link rel="stylesheet" type="text/css" href="../static/reset.css">
+	<link rel="stylesheet" type="text/css" href="../static/style.css">
+	<script type="text/javascript" src="../static/jquery.min.js"></script>
+</head>
+<body>
+	<div class="header">
+		<div class="w1000">
+			<div class="left mt-38">
+				<img src="../static/flag.png" class="left"><p class="left ml-5">7x24 小时 在线电话客服</p>
+			</div>
+			<div class="right mt-38">
+				<img src="../static/phone.png" class="left"><p class="left ml-5">澳门热线：00853-62526999</p>
+			</div>
+		</div>
+	</div>
+	<div class="content">
+		<div class="w1000">
+			<form class="left" method="post" action="">
+                {% csrf_token %}
+				<input type="text" name="user_name" id="user_name" value="" class="left" placeholder="请输入会员账号">
+				<button type="button" onclick="queryClick()" class="left ml-5">查询</button>
+			</form>
+			<div class="clearfix"></div>
+			<div class="result" style="display:none">
+				<table>
+					<tr>
+						<th width="144px">会员账号</th>
+						<th width="156px">周有效投注</th>
+						<th width="180px">历史有效投注</th>
+						<th width="98px">俸禄</th>
+						<th>SVIP王者荣耀排行</th>
+					</tr>
+					<tr id="info">
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<div class="footer">
+			Copyright The Parisian 澳門巴黎人 Macao Reserved
+		</div>
+	</div>
+	<script type="text/javascript">
+		function queryClick(){
+			var username = $('#user_name').val();
+			if(username == ''){
+				alert('用户名不能为空!');
+				exit;
+			}
+			$.ajax({
+				url: '/',
+				dataType: 'json',
+				cache: false,
+				type: 'POST',
+
+				data: {user:username, 'csrfmiddlewaretoken': '{{ csrf_token }}'},
+				success: function(obj) {
+
+					if(obj.stat == '0'){
+						$('#info').html('<td>'+obj.user+'</td><td>'+obj.week+'</td><td>'+obj.total+'</td><td>'+obj.lottery+'</td><td><img src="../static/l'+obj.level+'.png"/></td>');
+						$('.result').show();
+						$('.content button').css('background','url(../static/logout.png)');
+						$('.content button').hover(function(){
+							$('.content button').css('background','url(../static/logout-hover.png)');
+						},function(){
+							$('.content button').css('background','url(../static/logout.png)');
+						}).click(function(){
+							alert('注销成功');
+							window.location.reload();
+							return false;
+						});
+						$('.content input').css({'background':'url(../static/input-gray.png)','color':'#F2DA77'}).attr('readonly','readonly');
+					}else{
+						alert(obj.msg);
+					}
+				},
+				error: function(XMLHttpRequest, textStatus, errorThrown) {
+					var x = 1
+				}
+			})
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,100 @@
+.w1000 {
+	width: 1000px;
+	margin: 0 auto;
+}
+.left {
+	float: left;
+}
+.right {
+	float: right;
+}
+.mt-38 {
+	margin-top: 38px;
+}
+.ml-5 {
+	margin-left: 5px;
+}
+.clearfix {
+	clear: both;
+}
+.header {
+	height: 116px;
+	background: url(../static/header.png) center;
+	color: #fff;
+	line-height: 18px;
+}
+.content {
+	height: 825px;
+	background: url(../static/content.jpg) center;
+	position: relative;
+}
+.footer {
+	height: 52px;
+	line-height: 52px;
+	border-top: 1px dotted #333;
+	color: #fff;
+	text-align: center;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+}
+.content form {
+	width: 546px;
+	height: 57px;
+	margin: 0 auto;
+	margin-top: 410px;
+	margin-left: 227px;
+}
+.content input,.content button {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	background-color: none;
+	outline: none;
+}
+.content input {
+	width: 344px;
+	height: 57px;
+	background: url(../static/input.png) center;
+	text-indent: 15px;
+	font-size: 28px;
+}
+.content button {
+	width: 197px;
+	height: 57px;
+	background: url(../static/login.png) center;
+	font-size: 0;
+	text-indent: -10000px;
+	cursor: pointer;
+}
+.content button:hover {
+	background: url(../static/login-hover.png) center;
+}
+.result {
+	width: 994px;
+	height: 209px;
+	margin: 0 auto;
+	background: url(../static/result.png) center no-repeat;
+	padding-top: 50px;
+}
+table {
+	border-collapse: collapse;
+	border: none;
+	margin: 0 auto;
+	width: 95%;
+}
+th,td {
+	border: 1px solid #5d4628;
+}
+th {
+	font-size: 24px;
+	color: #ff9908;
+	height: 50px;
+}
+td {
+	font-size: 18px;
+	color: #fbf39e;
+	height: 110px;
+	text-align: center;
+}

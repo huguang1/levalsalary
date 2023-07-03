@@ -1,0 +1,8 @@
+body, ol, ul, h1, h2, h3, h4, h5, h6, p, th, td, dl, dd, form, input, textarea { margin:0; padding:0; }
+body { font-size:12px; font-family:"黑体", "Arial Narrow", HELVETICA; background:#000; }
+a { color:#2d374b; text-decoration:none; }
+a:hover { color:#cd0200; text-decoration:underline; }
+li { list-style:none; }
+img { border:0; }
+table { border-spacing:0; }
+p { word-wrap:break-word; }
